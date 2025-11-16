@@ -1,21 +1,43 @@
-'use client'
+"use client"
 
-import * as React from 'react'
-import { GripVerticalIcon } from 'lucide-react'
-import * as ResizablePrimitive from 'react-resizable-panels'
-import { cn } from 'valery/lib/utils'
+import * as React from "react"
+import { GripVerticalIcon } from "lucide-react"
+import * as ResizablePrimitive from "react-resizable-panels"
+import { cn } from "valery/lib/utils"
 
+// ---------------------------------------------------------------------------
+// TYPES
+// ---------------------------------------------------------------------------
 
+type PanelGroupProps = React.ComponentProps<typeof ResizablePrimitive.PanelGroup> & {
+  className?: string
+  direction: "horizontal" | "vertical"
+}
 
-function ResizablePanelGroup({
+type PanelProps = React.ComponentProps<typeof ResizablePrimitive.Panel>
+
+type HandleProps = React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> & {
+  withHandle?: boolean
+  className?: string
+}
+
+// ---------------------------------------------------------------------------
+// COMPONENTS
+// ---------------------------------------------------------------------------
+
+export function ResizablePanelGroup({
   className,
+  direction,
   ...props
-}: React.ComponentProps<typeof ResizablePrimitive.PanelGroup>) {
+}: PanelGroupProps) {
   return (
     <ResizablePrimitive.PanelGroup
+      direction={direction}
       data-slot="resizable-panel-group"
       className={cn(
-        'flex h-full w-full data-[panel-group-direction=vertical]:flex-col',
+        "flex h-full w-full transition-all duration-300",
+        // auto switch to stacked layout on mobile
+        "max-md:flex-col",
         className,
       )}
       {...props}
@@ -23,35 +45,34 @@ function ResizablePanelGroup({
   )
 }
 
-function ResizablePanel({
-  ...props
-}: React.ComponentProps<typeof ResizablePrimitive.Panel>) {
+export function ResizablePanel(props: PanelProps) {
   return <ResizablePrimitive.Panel data-slot="resizable-panel" {...props} />
 }
 
-function ResizableHandle({
-  withHandle,
+export function ResizableHandle({
+  withHandle = true,
   className,
   ...props
-}: React.ComponentProps<typeof ResizablePrimitive.PanelResizeHandle> & {
-  withHandle?: boolean
-}) {
+}: HandleProps) {
   return (
     <ResizablePrimitive.PanelResizeHandle
       data-slot="resizable-handle"
       className={cn(
-        'bg-border focus-visible:ring-ring relative flex w-px items-center justify-center after:absolute after:inset-y-0 after:left-1/2 after:w-1 after:-translate-x-1/2 focus-visible:ring-1 focus-visible:ring-offset-1 focus-visible:outline-hidden data-[panel-group-direction=vertical]:h-px data-[panel-group-direction=vertical]:w-full data-[panel-group-direction=vertical]:after:left-0 data-[panel-group-direction=vertical]:after:h-1 data-[panel-group-direction=vertical]:after:w-full data-[panel-group-direction=vertical]:after:translate-x-0 data-[panel-group-direction=vertical]:after:-translate-y-1/2 [&[data-panel-group-direction=vertical]>div]:rotate-90',
+        "relative flex items-center justify-center bg-border transition-all",
+        "hover:bg-border/60 active:bg-border/80",
+        // horizontal
+        "w-0.5 max-md:w-full max-md:h-0.5",
+        // vertical orientation
+        "data-[panel-group-direction=vertical]:h-0.5",
         className,
       )}
       {...props}
     >
       {withHandle && (
-        <div className="bg-border z-10 flex h-4 w-3 items-center justify-center rounded-xs border">
-          <GripVerticalIcon className="size-2.5" />
+        <div className="z-20 flex h-5 w-4 items-center justify-center rounded-sm border bg-background/80 shadow-md backdrop-blur-md">
+          <GripVerticalIcon className="size-3 opacity-70" />
         </div>
       )}
     </ResizablePrimitive.PanelResizeHandle>
   )
 }
-
-export { ResizablePanelGroup, ResizablePanel, ResizableHandle }

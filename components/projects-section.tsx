@@ -13,7 +13,7 @@ import Image from "next/image"
 const projects = [
   {
     id: 1,
-    title: "Multi-Modal AI Document Intelligence — PyTorch, LangChain, Vector DB",
+    title: "Multi-Modal AI Document Intelligence: PyTorch, LangChain, Vector DB",
     description:
       "Advanced RAG system with multi-modal document processing (text, images, tables). Handles PDF, DOCX, and scanned documents with 94% accuracy.",
     problem: "Enterprise team needed to extract and query information from 50k+ mixed-format documents",
@@ -37,7 +37,7 @@ const projects = [
   },
   {
     id: 2,
-    title: "Water Quality Prediction System — XGBoost, Next.js, PostGIS",
+    title: "Water Quality Prediction System: XGBoost, Next.js, PostGIS",
     description:
       "Real-time water quality forecasting using ML regression models and IoT sensor data with interactive map visualization.",
     problem: "Manual water quality testing took 24-48 hours, delaying critical decisions",
@@ -59,7 +59,7 @@ const projects = [
   },
   {
     id: 3,
-    title: "Retail Forecast Automation — Python, FastAPI, PostgreSQL",
+    title: "Retail Forecast Automation: Python, FastAPI, PostgreSQL",
     description:
       "Automated demand forecasting system that improved retail inventory accuracy by 22% using time-series ML models.",
     problem: "Manual forecasting led to 30% stockouts and overstock waste",
@@ -77,7 +77,7 @@ const projects = [
   },
   {
     id: 4,
-    title: "Smart Automation Pipeline — Python, AWS, Docker",
+    title: "Smart Automation Pipeline: Python, AWS, Docker",
     description:
       "End-to-end automation system for data processing and workflow orchestration. Reduced manual work by 70% across teams.",
     problem: "Teams spent 20+ hours/week on manual data processing and reporting",
@@ -121,7 +121,7 @@ export function ProjectsSection() {
             <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">Case Studies</span>
           </h2>
           <p className="text-lg text-muted-foreground mb-12 text-pretty text-center">
-            Real-world solutions with measurable business impact — similar services available for hire
+            Real-world solutions with measurable business impact
           </p>
 
           <div className="flex flex-wrap gap-2 mb-12 justify-center">

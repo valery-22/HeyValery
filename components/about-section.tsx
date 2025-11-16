@@ -1,9 +1,8 @@
-
 "use client"
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
+import Image from "next/image"
 
 import { Code, Lightbulb, Users, Globe } from "lucide-react"
 import { Card, CardContent } from "./ui/card"
@@ -13,156 +12,162 @@ export function AboutSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section id="about" className="py-24 px-6 bg-muted/30 relative overflow-hidden" ref={ref}>
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/3 left-1/4 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
+    <section
+      id="about"
+      ref={ref}
+      className="relative py-28 px-6 overflow-hidden bg-linear-to-b from-background to-background/60"
+    >
+      {/* Premium Spotlights */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-primary/20 rounded-full blur-[160px] opacity-20" />
+        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-secondary-accent/20 rounded-full blur-[160px] opacity-20" />
       </div>
 
-      <div className="container mx-auto max-w-6xl">
+      <div className="mx-auto max-w-6xl">
+
+        {/* Title Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance text-center">About Me</h2>
-          <p className="text-lg text-muted-foreground mb-12 text-center text-pretty max-w-2xl mx-auto">
-            A software engineer who genuinely enjoys solving problems and building things that work
+          <h2 className="text-5xl md:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-br from-white to-white/50">
+            About Me
+          </h2>
+
+          <p className="text-lg text-muted-foreground mt-4 max-w-xl mx-auto leading-relaxed">
+            A software engineer who genuinely enjoys building intelligent, scalable systems.
+          </p>
+        </motion.div>
+
+        {/* Main Grid */}
+        <div className="grid md:grid-cols-2 gap-16 items-center mt-20">
+
+          {/* Image Block */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="relative flex justify-center"
+          >
+            {/* Glowing border */}
+            <div className="absolute inset-0 w-[90%] h-[90%] rounded-3xl bg-linear-to-br from-primary/20 to-secondary-accent/20 blur-3xl opacity-30" />
+
+            {/* Image Container */}
+            <motion.div
+              initial={{ scale: 0.97 }}
+              animate={isInView ? { scale: 1 } : {}}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 backdrop-blur-xl"
+            >
+              <Image
+                src="/images/aboutMePicture.png"
+                alt="Valery Hoyos"
+                width={480}
+                height={580}
+                className="object-cover"
+              />
+
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
+            </motion.div>
+          </motion.div>
+
+          {/* Text Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="space-y-6 text-lg leading-relaxed text-muted-foreground"
+          >
+            <p>
+              I&apos;m a Full Stack Software Engineer and AI/ML Engineer experienced across the entire
+              product development lifecycle—from prototyping machine learning models and vector search
+              systems to architecting full-stack web platforms using TypeScript, Python, React, Next.js,
+              FastAPI, PyTorch, LangChain, and modern vector databases.
+            </p>
+
+            <p>
+              My work spans designing APIs, building scalable backend systems, creating intuitive
+              interfaces, and ensuring maintainability through clean architecture. I&apos;ve collaborated with
+              teams across North America and Europe, building production-ready systems that solve real
+              business problems.
+            </p>
+
+            <p>
+              Outside of work, I love traveling across Europe and Latin America. Those experiences deeply
+              influence how I think about product, user experience, and human-centered engineering.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Features */}
+        <div className="grid md:grid-cols-4 gap-8 my-24">
+          {[
+            {
+              icon: <Code className="h-7 w-7 text-primary" />,
+              title: "Clean Code Advocate",
+              desc: "Readable, maintainable, future-proof engineering.",
+              delay: 0.1
+            },
+            {
+              icon: <Lightbulb className="h-7 w-7 text-secondary-accent" />,
+              title: "Problem Solver",
+              desc: "Turning complexity into simple, elegant solutions.",
+              delay: 0.2
+            },
+            {
+              icon: <Users className="h-7 w-7 text-accent" />,
+              title: "Team Collaborator",
+              desc: "Strong communication, clarity, and engineering empathy.",
+              delay: 0.3
+            },
+            {
+              icon: <Globe className="h-7 w-7 text-primary" />,
+              title: "Global Mobility",
+              desc: "Open to relocation & visa sponsorship worldwide.",
+              delay: 0.4
+            }
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: item.delay }}
+            >
+              <Card className="backdrop-blur-xl bg-white/5 border-white/10 hover:bg-white/10 transition-all duration-300 shadow-xl rounded-2xl">
+                <CardContent className="pt-8 pb-6 text-center space-y-3">
+                  <div className="w-14 h-14 mx-auto rounded-full bg-white/10 flex items-center justify-center">
+                    {item.icon}
+                  </div>
+                  <h3 className="font-semibold text-xl">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Final Statement */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="max-w-4xl mx-auto text-lg leading-relaxed text-muted-foreground space-y-6"
+        >
+          <p>
+            I’ve built ML systems that improved accuracy by 60%, automated workflows that reduced manual
+            work by 70%, and full-stack features that boosted user engagement by 45%. But what matters most
+            to me is engineering clarity: writing code others can understand, extend, and trust.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="relative rounded-2xl overflow-hidden border-2 border-border shadow-2xl aspect-square">
-                
-                
-                {/* Gradient overlay with coffee tones */}
-                <div className="absolute inset-0 bg-linear-to-t from-secondary-accent/20 to-transparent" />
-              </div>
-              {/* Decorative elements with coffee colors */}
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary-accent/20 rounded-full blur-3xl -z-10" />
-              <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl -z-10" />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="space-y-6"
-            >
-              <div className="prose prose-lg dark:prose-invert max-w-none">
-                <p className="text-lg leading-relaxed text-muted-foreground text-pretty">
-                  I&apos;m a Full-Stack Software Engineer and AI/ML Engineer who loves building intelligent web applications
-                  that actually solve problems. My background is in Computer Science, and I&apos;ve spent the last few years
-                  working on everything from SaaS platforms to automation tools to advanced AI systems using machine
-                  learning and large language models.
-                </p>
-
-                <p className="text-lg leading-relaxed text-muted-foreground text-pretty">
-                  My tech stack includes TypeScript, Python, React, Next.js, FastAPI, and modern AI frameworks like
-                  PyTorch, LangChain, and various vector databases. I&apos;m comfortable working across the entire stack -
-                  from training ML models and building intelligent systems to designing databases and creating
-                  responsive user interfaces.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-6 mb-12">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <Card className="border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
-                <CardContent className="pt-6 text-center">
-                  <div className="w-12 h-12 rounded-full bg-linear-to-br from-primary/20 to-secondary-accent/20 flex items-center justify-center mx-auto mb-4">
-                    <Code className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold mb-2">Clean Code Advocate</h3>
-                  <p className="text-sm text-muted-foreground">
-                    I believe good code should be readable, maintainable, and actually make sense.
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <Card className="border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
-                <CardContent className="pt-6 text-center">
-                  <div className="w-12 h-12 rounded-full bg-linear-to-br from-secondary-accent/20 to-accent/20 flex items-center justify-center mx-auto mb-4">
-                    <Lightbulb className="h-6 w-6 text-secondary-accent" />
-                  </div>
-                  <h3 className="font-semibold mb-2">Problem Solver</h3>
-                  <p className="text-sm text-muted-foreground">
-                    I love the challenge of breaking down complex problems into simple solutions.
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <Card className="border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
-                <CardContent className="pt-6 text-center">
-                  <div className="w-12 h-12 rounded-full bg-linear-to-br from-accent/20 to-primary/20 flex items-center justify-center mx-auto mb-4">
-                    <Users className="h-6 w-6 text-accent" />
-                  </div>
-                  <h3 className="font-semibold mb-2">Team Player</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Great software is built by great teams working together
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <Card className="border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
-                <CardContent className="pt-6 text-center">
-                  <div className="w-12 h-12 rounded-full bg-linear-to-br from-primary/20 to-accent/20 flex items-center justify-center mx-auto mb-4">
-                    <Globe className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="font-semibold mb-2">Open to Relocation</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Available for opportunities worldwide with visa sponsorship
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
-
-          <div className="prose prose-lg dark:prose-invert max-w-none">
-            <p className="text-lg leading-relaxed text-muted-foreground mb-6 text-pretty">
-              What I enjoy most is taking a complex problem, understanding what really needs to be solved, and then
-              building something that works well and is maintainable. I&apos;ve worked on projects that leverage cutting-edge
-              AI for document intelligence, increased user engagement by 45%, reduced manual work by 70%, and improved
-              system accuracy by 60% - but more importantly, I&apos;ve learned how to write code that other developers can
-              actually understand and work with.
-            </p>
-
-            <p className="text-lg leading-relaxed text-muted-foreground text-pretty">
-              Right now, I&apos;m looking for opportunities where I can work with talented engineers on challenging AI/ML and
-              full-stack problems at scale. I&apos;m particularly interested in companies that value clean code, good
-              engineering practices, and building products that users actually love. I&apos;m open to relocation and visa
-              sponsorship opportunities worldwide.
-            </p>
-          </div>
+          <p>
+            I’m now looking for opportunities where I can contribute to ambitious teams working on
+            AI/ML-driven products, scalable systems, and meaningful user experiences—anywhere in the world.
+          </p>
         </motion.div>
+
       </div>
     </section>
   )

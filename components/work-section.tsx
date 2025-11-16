@@ -126,7 +126,7 @@ export function WorkSection() {
             </span>
           </h2>
           <p className="text-lg text-muted-foreground mb-12 text-pretty text-center">
-            Real client projects — similar services available for your business
+            Real client projects services available for your business
           </p>
 
           <div className="flex flex-wrap gap-2 mb-12 justify-center">
