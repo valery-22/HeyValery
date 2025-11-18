@@ -37,7 +37,7 @@ export function AboutSection() {
           </h2>
 
           <p className="text-lg text-muted-foreground mt-4 max-w-xl mx-auto leading-relaxed">
-            A software engineer who genuinely enjoys building intelligent, scalable systems.
+            A software engineer who enjoys building intelligent, scalable systems.
           </p>
         </motion.div>
 
@@ -62,7 +62,7 @@ export function AboutSection() {
               className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 backdrop-blur-xl"
             >
               <Image
-                src="/images/aboutMePicture.png"
+                src="/your-photo.jpg"
                 alt="Valery Hoyos"
                 width={480}
                 height={580}
@@ -82,8 +82,8 @@ export function AboutSection() {
             className="space-y-6 text-lg leading-relaxed text-muted-foreground"
           >
             <p>
-              I&apos;m a Full Stack Software Engineer and AI/ML Engineer experienced across the entire
-              product development lifecycle—from prototyping machine learning models and vector search
+              I&apos;m a Software Engineer and AI/ML Engineer experienced across the entire
+              product development lifecycle from prototyping machine learning models and vector search
               systems to architecting full-stack web platforms using TypeScript, Python, React, Next.js,
               FastAPI, PyTorch, LangChain, and modern vector databases.
             </p>
@@ -91,7 +91,7 @@ export function AboutSection() {
             <p>
               My work spans designing APIs, building scalable backend systems, creating intuitive
               interfaces, and ensuring maintainability through clean architecture. I&apos;ve collaborated with
-              teams across North America and Europe, building production-ready systems that solve real
+              teams across the US and Europe, building production ready systems that solve real
               business problems.
             </p>
 
@@ -164,7 +164,7 @@ export function AboutSection() {
 
           <p>
             I’m now looking for opportunities where I can contribute to ambitious teams working on
-            AI/ML-driven products, scalable systems, and meaningful user experiences—anywhere in the world.
+              products, scalable systems, and meaningful user experiences anywhere in the world.
           </p>
         </motion.div>
 
