@@ -62,7 +62,7 @@ export function AboutSection() {
               className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 backdrop-blur-xl"
             >
               <Image
-                src="/your-photo.jpg"
+                src="/your-photo.jepg"
                 alt="Valery Hoyos"
                 width={480}
                 height={580}
