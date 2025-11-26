@@ -1,7 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { TrendingUp, Zap, Target } from "lucide-react"
 
@@ -9,21 +8,21 @@ const impacts = [
   {
     icon: TrendingUp,
     metric: "+45%",
-    description: "Increased client acquisition through AI SaaS automation",
+    description: "Helped increase client acquisition by automating repetitive tasks with AI-powered tools.",
     color: "text-purple-600 dark:text-purple-400",
     bg: "bg-purple-100 dark:bg-purple-500/20",
   },
   {
     icon: Zap,
     metric: "70%",
-    description: "Reduced data processing time with smart pipeline automation",
+    description: "Reduced data processing time by building smarter pipelines that handle tasks automatically.",
     color: "text-pink-600 dark:text-pink-400",
     bg: "bg-pink-100 dark:bg-pink-500/20",
   },
   {
     icon: Target,
     metric: "+60%",
-    description: "Improved query accuracy via LLM semantic search",
+    description: "Improved search accuracy using LLM semantic search, helping users find relevant information faster.",
     color: "text-teal-600 dark:text-teal-400",
     bg: "bg-teal-100 dark:bg-teal-500/20",
   },
@@ -35,6 +34,7 @@ export function ImpactSection() {
 
   return (
     <section id="impact" className="py-24 px-6 bg-muted/30 relative overflow-hidden" ref={ref}>
+      {/* Background Highlights */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/2 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
@@ -46,13 +46,13 @@ export function ImpactSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
             <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
-              Impact Highlights
+              Some Things I’ve Built
             </span>
           </h2>
-          <p className="text-lg text-muted-foreground mb-12 text-center text-pretty max-w-2xl mx-auto">
-            Measurable results from real-world AI implementations
+          <p className="text-lg text-muted-foreground mb-12 text-center max-w-2xl mx-auto">
+            These are a few examples of work I’ve done that made a noticeable difference for users and teams.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -72,7 +72,9 @@ export function ImpactSection() {
                   <div className="text-4xl md:text-5xl font-bold mb-3 bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
                     {impact.metric}
                   </div>
-                  <p className="text-muted-foreground text-pretty leading-relaxed">{impact.description}</p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {impact.description}
+                  </p>
                 </motion.div>
               )
             })}

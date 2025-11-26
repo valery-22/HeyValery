@@ -5,52 +5,57 @@ import { useRef } from "react"
 import { Users, Star, TrendingUp, Sparkles, Code2, Zap } from "lucide-react"
 import { Card, CardContent } from "./ui/card"
 
-
 const achievements = [
   {
     icon: Sparkles,
-    title: "5+ AI Systems Shipped",
-    description: "RAG pipelines with FAISS/Pinecone, LLM apps (GPT-4, Claude), automation agents in production",
+    title: "Built & Shipped 5+ AI Systems",
+    description:
+      "Created real-world AI tools — from small RAG prototypes to production-ready automations using FAISS/Pinecone and LLM-based workflows.",
     year: "2024",
     color: "from-purple-500 to-pink-500",
     bgColor: "bg-purple-500/10",
   },
   {
     icon: TrendingUp,
-    title: "22% Forecast Accuracy Boost",
-    description: "XGBoost model for retail demand forecasting, reduced stockouts by 30%",
+    title: "Improved Forecast Accuracy",
+    description:
+      "Developed an XGBoost model for a retail client. After several iterations and fixing data inconsistencies, accuracy increased and stockouts dropped significantly.",
     year: "2024",
     color: "from-green-500 to-emerald-600",
     bgColor: "bg-green-500/10",
   },
   {
     icon: Zap,
-    title: "Sub-Second Retrieval at Scale",
-    description: "Semantic search over 10k+ documents, deployed on AWS with 99.9% uptime",
+    title: "Fast Semantic Search (Sub-Second)",
+    description:
+      "Built a semantic search system for 10k+ documents. Tuned the embeddings pipeline and AWS setup to keep response times under one second in production.",
     year: "2024",
     color: "from-secondary-accent to-orange-600",
     bgColor: "bg-secondary-accent/10",
   },
   {
     icon: Star,
-    title: "4.8/5 Client & Team Rating",
-    description: "Mentorship, fast delivery, clear communication across 6 freelance projects",
+    title: "4.8/5 Client & Team Feedback",
+    description:
+      "Consistently rated highly for communication, clarity, and delivery speed across freelance projects and internal team collaborations.",
     year: "2024",
     color: "from-pink-500 to-rose-600",
     bgColor: "bg-pink-500/10",
   },
   {
     icon: Users,
-    title: "Mentored 50+ Students",
-    description: "Teaching Python, web development, and AI fundamentals through workshops",
-    year: "2023-2024",
+    title: "Taught 50+ Students",
+    description:
+      "Led workshops and mentoring sessions covering Python, AI fundamentals, and full-stack development — focusing heavily on real examples, not just theory.",
+    year: "2023–2024",
     color: "from-accent to-teal-600",
     bgColor: "bg-accent/10",
   },
   {
     icon: Code2,
-    title: "5-7 Day POC Delivery",
-    description: "Rapid prototyping with MVP-to-production pipeline, 3 successful POCs delivered",
+    title: "Rapid POC Delivery (5–7 Days)",
+    description:
+      "Helped early-stage teams turn ideas into working MVPs in less than a week. Several of these prototypes were later expanded into full production systems.",
     year: "2024",
     color: "from-primary to-purple-600",
     bgColor: "bg-primary/10",
@@ -70,18 +75,22 @@ export function AchievementsSection() {
       </div>
 
       <div className="container mx-auto max-w-6xl">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">Achievements & Recognition</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
+            Achievements & Recognition
+          </h2>
           <p className="text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
-            Measurable impact from real-world AI and full-stack projects
+            Highlights from projects I’ve worked on, things I’ve built, improved, or helped bring to life.
           </p>
         </motion.div>
 
+        {/* Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {achievements.map((achievement, index) => {
             const Icon = achievement.icon
@@ -101,11 +110,12 @@ export function AchievementsSection() {
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         transition={{ type: "spring", stiffness: 300 }}
                       >
-                        <Icon className={`h-6 w-6 text-foreground`} />
+                        <Icon className="h-6 w-6 text-foreground" />
                         <motion.div
                           className={`absolute inset-0 rounded-xl bg-linear-to-br ${achievement.color} opacity-0 group-hover:opacity-20 transition-opacity`}
                         />
                       </motion.div>
+
                       <div className="flex-1">
                         <div className="flex items-center justify-between mb-1">
                           <h3 className="font-bold text-lg">{achievement.title}</h3>
