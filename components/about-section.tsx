@@ -77,7 +77,7 @@ export function AboutSection() {
             className="space-y-6 text-lg leading-relaxed text-muted-foreground"
           >
             <p>
-              I’m a Software and AI/ML Engineer who enjoys turning ideas into reliable, production-ready systems. 
+              I’m a Software Engineer who enjoys turning ideas into reliable, production-ready systems. 
               From prototyping machine learning models to building full-stack web platforms, I work across the tech stack using TypeScript, Python, React, Next.js, FastAPI, PyTorch, LangChain, and modern vector databases.
             </p>
 

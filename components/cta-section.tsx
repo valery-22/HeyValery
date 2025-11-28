@@ -47,7 +47,7 @@ export function CTASection() {
 
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Let&apos;s build something.</h2>
               <p className="text-lg text-muted-foreground mb-4 text-pretty max-w-2xl mx-auto">
-                Open to AI Engineer, AI Agent Developer, ML Engineer, and Full-Stack AI roles.
+                Open to Frontend engineering roles, Full-stack and AI/ML roles  .
               </p>
 
               <p className="text-sm text-muted-foreground">

@@ -9,7 +9,7 @@ import { GraduationCap, Award } from "lucide-react"
 const education = [
   {
     degree: "B.S. in Computer Science",
-    institution: "Southwestern University",
+    institution: "Politecnico Grancolombiano",
     icon: GraduationCap,
   },
 ]
