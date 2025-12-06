@@ -35,7 +35,7 @@ const freelanceProjects = [
     tech: ["Next.js", "TypeScript", "PostgreSQL", "Redis", "D3.js", "AWS"],
     results: ["1M+ events processed daily", "Real-time data updates", "Custom KPI tracking"],
     service: "Available: Analytics dashboards, Data visualization, Real-time systems",
-    image: "/freelance-analytics-dashboard.jpg",
+    image: "/freelance-analytics-dashboard.png",
     category: "Full-Stack",
     demo: "https://demo.com",
     video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
