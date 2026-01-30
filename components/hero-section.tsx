@@ -1,12 +1,12 @@
 "use client"
 
 import { motion, useScroll, useTransform } from "framer-motion"
-import { ArrowRight, Github, Linkedin, Mail, Terminal, Sparkles, Code2, FileText } from "lucide-react"
+import { ArrowRight, Github, Linkedin, Mail, Terminal, Code2, FileText } from "lucide-react"
+import { AnimatedBackground } from "./animated-background"
+import { Badge } from "./ui/badge"
 import { Button } from "./ui/button"
 import Link from "next/link"
 import { useRef, useState, useEffect, useMemo } from "react"
-import { AnimatedBackground } from "./animated-background"
-import { Badge } from "./ui/badge"
 
 export function HeroSection() {
   const ref = useRef<HTMLElement>(null)
@@ -25,15 +25,19 @@ export function HeroSection() {
   const commands = useMemo(
     () => [
       { command: "whoami", output: "Valery Hoyos Arrieta" },
-      { command: "cat role.txt", output: "AI Engineer · Full-Stack Dev · System Builder" },
+      { command: "cat role.txt", output: "Software Engineer ·AI Enginer · Model Training Specialist" },
       {
-        command: "cat stack.txt",
-        output:
-          "AI/ML: PyTorch, LangChain, RAG, Vector DBs\nBackend: Python, FastAPI, Node.js, PostgreSQL\nFrontend: React, Next.js, TypeScript, Tailwind\nInfra: AWS, Docker, CI/CD, Serverless",
+        command: "cat impact.txt",
+        output: "$2.4M+ revenue generated through AI systems\n8 production ML models deployed\n40% average cost reduction for clients",
       },
       {
-        command: "ls links/",
-        output: "GitHub: github.com/valery-22\nResume: /resume.pdf",
+        command: "cat expertise.txt",
+        output:
+          "Frontend, Model Training: PyTorch, TensorFlow, Custom LLM Fine-tuning\nMLOps: Weights & Biases, MLflow, Model Monitoring\nProduction: FastAPI, AWS SageMaker, Kubernetes\nSpecialty: RAG Systems, Vector Search, Document AI",
+      },
+      {
+        command: "cat availability.txt",
+        output: "Contract work\nStatus: Available for high-impact projects\nTimezone: UTC-5 (flexible for global teams)",
       },
     ],
     [],
@@ -84,7 +88,7 @@ export function HeroSection() {
       <AnimatedBackground />
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-primary/20 rounded-full"
@@ -94,7 +98,7 @@ export function HeroSection() {
             }}
             animate={{
               y: [-20, 20],
-              opacity: [0.2, 0.8, 0.2],
+              opacity: [0.2, 0.6, 0.2],
             }}
             transition={{
               duration: 3 + Math.random() * 2,
@@ -117,9 +121,9 @@ export function HeroSection() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-sm text-muted-foreground font-mono mb-4"
+              className="text-xs text-muted-foreground font-mono uppercase tracking-wider"
             >
-              AI Engineer · Full-Stack Dev · System Builder
+            Sofware Engineer & AI Specialist
             </motion.div>
 
             <motion.div
@@ -130,9 +134,9 @@ export function HeroSection() {
             >
               <div className="bg-muted/50 border-b border-border px-4 py-3 flex items-center gap-2">
                 <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/80" />
                 </div>
                 <div className="flex items-center gap-2 ml-4 text-sm text-muted-foreground font-mono">
                   <Terminal className="h-4 w-4" />
@@ -140,16 +144,16 @@ export function HeroSection() {
                 </div>
               </div>
 
-              <div className="p-4 sm:p-6 lg:p-8 font-mono text-xs sm:text-sm space-y-4 min-h-[350px] sm:min-h-[450px]">
+              <div className="p-4 sm:p-6 lg:p-8 font-mono text-xs sm:text-sm space-y-4 min-h-[350px] sm:min-h-[400px]">
                 {commands.slice(0, currentCommand).map((cmd, index) => (
                   <motion.div key={index} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-1">
                     <div className="text-primary">$ {cmd.command}</div>
-                    <div className="text-foreground pl-2 whitespace-pre-wrap">{cmd.output}</div>
+                    <div className="text-foreground pl-2 whitespace-pre-wrap leading-relaxed">{cmd.output}</div>
                   </motion.div>
                 ))}
                 {currentCommand < commands.length && (
                   <div className="space-y-1">
-                    <div className="text-primary whitespace-pre-wrap">
+                    <div className="text-primary whitespace-pre-wrap leading-relaxed">
                       {displayedText}
                       {showCursor && <span className="inline-block w-2 h-4 bg-primary ml-1 animate-pulse" />}
                     </div>
@@ -169,27 +173,20 @@ export function HeroSection() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35 }}
-              className="text-center lg:text-left"
-            ></motion.div>
-
-            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4 }}
-              className="flex flex-wrap items-center gap-2 sm:gap-3"
+              className="flex flex-wrap items-center gap-3"
             >
               <Badge
                 variant="outline"
-                className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm border-primary/30 bg-primary/5"
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm border-primary/30 bg-primary/5 hover:bg-primary/10 transition-colors"
               >
                 <motion.div
-                  className="w-2 h-2 rounded-full bg-green-500"
+                  className="w-2 h-2 rounded-full bg-emerald-500"
                   animate={{
                     scale: [1, 1.2, 1],
-                    opacity: [1, 0.5, 1],
+                    opacity: [1, 0.7, 1],
                   }}
                   transition={{
                     duration: 2,
@@ -197,11 +194,7 @@ export function HeroSection() {
                     ease: "easeInOut",
                   }}
                 />
-                Open: AI Engineer, ML Engineer, Full-Stack AI
-              </Badge>
-              <Badge variant="secondary" className="inline-flex items-center gap-2 px-2 sm:px-3 py-1 sm:py-1.5 text-xs">
-                <Sparkles className="h-3 w-3" />
-                5+ AI systems shipped
+                Available for contracts
               </Badge>
             </motion.div>
 
@@ -209,13 +202,13 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-3 sm:gap-4 pt-2"
+              className="flex flex-wrap gap-3 pt-2"
             >
               {[
-                { icon: Linkedin, href: "https://www.linkedin.com/in/valery-hoyos-software/", label: "LinkedIn" },
-                { icon: Github, href: "https://github.com/valery-22", label: "GitHub" },
-                { icon: FileText, href: "/resume.pdf", label: "Resume" },
-                { icon: Mail, href: "mailto:valery.hoyos.dev@gmail.com", label: "Email" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/valery-hoyos-software/", label: "View LinkedIn Profile" },
+                { icon: Github, href: "https://github.com/valery-22", label: "Visit GitHub Profile" },
+                { icon: FileText, href: "/resume.pdf", label: "Download Resume PDF" },
+                { icon: Mail, href: "valery.hoyos.dev@gmail.com", label: "Send Email" },
               ].map((social, index) => (
                 <motion.div
                   key={social.label}
@@ -223,15 +216,16 @@ export function HeroSection() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7 + index * 0.1 }}
                   whileHover={{ y: -3, scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <Button
                     variant="outline"
                     size="icon"
                     asChild
-                    className="rounded-full h-10 w-10 sm:h-12 sm:w-12 hover:bg-primary/10 hover:text-primary hover:border-primary/50 transition-all bg-transparent"
+                    className="rounded-full h-12 w-12 hover:bg-primary/10 hover:text-primary hover:border-primary/50 transition-all bg-transparent"
                   >
                     <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
-                      <social.icon className="h-4 w-4 sm:h-5 sm:w-5" />
+                      <social.icon className="h-5 w-5" />
                     </a>
                   </Button>
                 </motion.div>
@@ -242,17 +236,16 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-4 pt-2"
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button
                   asChild
                   size="lg"
-                  className="group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20 h-10 sm:h-12 px-6 sm:px-8 text-sm sm:text-base"
+                  className="group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20 h-12 px-8"
                 >
-                  <Link href="/contact">
-                    <Sparkles className="mr-2 h-4 w-4" />
-                    Book a call
+                  <Link href="/projects">
+                    View Projects
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
@@ -262,9 +255,9 @@ export function HeroSection() {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="h-10 sm:h-12 px-6 sm:px-8 text-sm sm:text-base border-2 hover:bg-primary/5 bg-transparent"
+                  className="h-12 px-8 border-2 hover:bg-primary/5 bg-transparent"
                 >
-                  <Link href="/work">View Case Studies</Link>
+                  <Link href="/contact">Get in Touch</Link>
                 </Button>
               </motion.div>
             </motion.div>
@@ -284,20 +277,12 @@ export function HeroSection() {
               <div className="bg-muted/50 border-b border-border px-4 py-3 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                    <div className="w-3 h-3 rounded-full bg-green-500" />
+                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
                   </div>
-                  <span className="text-sm text-muted-foreground font-mono ml-4">intro-video.mp4</span>
+                  <span className="text-sm text-muted-foreground font-mono ml-4">intro.mp4</span>
                 </div>
-                <Badge variant="secondary" className="text-xs">
-                  <motion.div
-                    className="w-2 h-2 rounded-full bg-red-500 mr-2"
-                    animate={{ opacity: [1, 0.3, 1] }}
-                    transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-                  />
-                  LIVE
-                </Badge>
               </div>
 
               <div className="aspect-video relative bg-linear-to-br from-primary/10 via-accent/10 to-secondary-accent/10">
@@ -309,22 +294,6 @@ export function HeroSection() {
                   allowFullScreen
                 />
               </div>
-
-              <motion.div
-                className="absolute inset-0 rounded-xl ring-1 ring-primary/10 pointer-events-none"
-                animate={{
-                  boxShadow: [
-                    "0 0 20px rgba(139, 92, 246, 0.1)",
-                    "0 0 40px rgba(139, 92, 246, 0.2)",
-                    "0 0 20px rgba(139, 92, 246, 0.1)",
-                  ],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                }}
-              />
             </motion.div>
 
             <motion.div
@@ -336,36 +305,33 @@ export function HeroSection() {
             >
               <div className="bg-muted/50 border-b border-border px-4 py-2 flex items-center gap-2">
                 <Code2 className="h-4 w-4 text-muted-foreground" />
-                <span className="text-xs text-muted-foreground font-mono">engineer.ts</span>
+                <span className="text-xs text-muted-foreground font-mono">status.json</span>
               </div>
               <div className="p-4 font-mono text-xs space-y-1">
                 <div className="text-muted-foreground">
-                  <span className="text-purple-400">const</span> <span className="text-blue-400">engineer</span> = {"{"}
+                  <span className="text-purple-400">const</span> <span className="text-blue-400">contract</span> = {"{"}
                 </div>
                 <div className="text-muted-foreground pl-4">
-                  name: <span className="text-green-400">&quot;Valery Hoyos Arrieta&quot;</span>,
+                  rate: <span className="text-green-400">&quot;$2,000/week&quot;</span>,
                 </div>
                 <div className="text-muted-foreground pl-4">
-                  role: <span className="text-green-400">&quot;Software Engineer&quot;</span>,
+                  availability: <span className="text-orange-400">true</span>,
                 </div>
                 <div className="text-muted-foreground pl-4">
-                  location: <span className="text-green-400">&quot;Open to relocation 🌍&quot;</span>,
+                  minEngagement: <span className="text-green-400">&quot;4 weeks&quot;</span>,
                 </div>
                 <div className="text-muted-foreground pl-4">
-                  visa: <span className="text-orange-400">true</span>,
-                </div>
-                <div className="text-muted-foreground pl-4">
-                  timezone: <span className="text-green-400">&quot;UTC-5 (flexible)&quot;</span>,
+                  deliverables: <span className="text-green-400">&quot;Production ML systems&quot;</span>,
                 </div>
                 <div className="text-muted-foreground">{"}"}</div>
               </div>
             </motion.div>
 
             <motion.div
-              className="absolute -bottom-8 -right-8 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10"
+              className="absolute -bottom-8 -right-8 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10"
               animate={{
                 scale: [1, 1.2, 1],
-                opacity: [0.3, 0.5, 0.3],
+                opacity: [0.2, 0.3, 0.2],
               }}
               transition={{
                 duration: 4,
@@ -374,10 +340,10 @@ export function HeroSection() {
               }}
             />
             <motion.div
-              className="absolute -top-8 -left-8 w-64 h-64 bg-accent/10 rounded-full blur-3xl -z-10"
+              className="absolute -top-8 -left-8 w-64 h-64 bg-accent/5 rounded-full blur-3xl -z-10"
               animate={{
                 scale: [1, 1.3, 1],
-                opacity: [0.3, 0.5, 0.3],
+                opacity: [0.2, 0.3, 0.2],
               }}
               transition={{
                 duration: 5,
@@ -391,10 +357,11 @@ export function HeroSection() {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:block"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
+        aria-label="Scroll down"
       >
         <motion.div
           className="w-6 h-10 border-2 border-primary/30 rounded-full flex items-start justify-center p-2"

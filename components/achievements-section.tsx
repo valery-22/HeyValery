@@ -10,7 +10,7 @@ const achievements = [
     icon: Sparkles,
     title: "Built & Shipped 5+ AI Systems",
     description:
-      "Created real-world AI tools — from small RAG prototypes to production-ready automations using FAISS/Pinecone and LLM-based workflows.",
+      "Created real-world AI tools from small RAG prototypes to production-ready automations using FAISS/Pinecone and LLM-based workflows.",
     year: "2024",
     color: "from-purple-500 to-pink-500",
     bgColor: "bg-purple-500/10",
@@ -46,7 +46,7 @@ const achievements = [
     icon: Users,
     title: "Taught 50+ Students",
     description:
-      "Led workshops and mentoring sessions covering Python, AI fundamentals, and full-stack development — focusing heavily on real examples, not just theory.",
+      "Led workshops and mentoring sessions covering Python, AI fundamentals, and full-stack development focusing heavily on real examples, not just theory.",
     year: "2023–2024",
     color: "from-accent to-teal-600",
     bgColor: "bg-accent/10",
