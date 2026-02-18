@@ -57,42 +57,8 @@ const projects = [
     demo: "https://demo.com",
     video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   },
-  {
-    id: 3,
-    title: "Retail Forecast Automation: Python, FastAPI, PostgreSQL",
-    description:
-      "Automated demand forecasting system that improved retail inventory accuracy by 22% using time-series ML models.",
-    problem: "Manual forecasting led to 30% stockouts and overstock waste",
-    approach: "Built automated pipeline with Prophet time-series models, feature engineering, and API deployment",
-    results: ["22% forecast accuracy improvement", "Reduced stockouts by 30%", "5-day POC to production in 3 weeks"],
-    role: "Backend Engineer & Data Scientist",
-    service: "Available for: Demand forecasting, Time-series modeling, API development",
-    image: "/ai-automation-dashboard.png",
-    tech: ["Python", "FastAPI", "Prophet", "PostgreSQL", "Docker"],
-    impact: "22% accuracy improvement",
-    category: "Automation",
-    github: "https://github.com/valery-22/Retail-Demand-Forecasting",
-    demo: "https://demo.com",
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  },
-  {
-    id: 4,
-    title: "Smart Automation Pipeline: Python, AWS, Docker",
-    description:
-      "End-to-end automation system for data processing and workflow orchestration. Reduced manual work by 70% across teams.",
-    problem: "Teams spent 20+ hours/week on manual data processing and reporting",
-    approach: "Built automated ETL pipeline with AWS Lambda, Step Functions, and Docker containers",
-    results: ["70% reduction in manual work", "Automated 15+ workflows", "Sub-2min processing time"],
-    role: "Backend Engineer & DevOps",
-    service: "Available for: Workflow automation, ETL pipelines, AWS serverless architecture",
-    image: "/automation-workflow-dashboard.png",
-    tech: ["Python", "FastAPI", "AWS Lambda", "Docker", "PostgreSQL"],
-    impact: "70% less manual work",
-    category: "Automation",
-    github: "https://github.com/valeryhoyos",
-    demo: "https://demo.com",
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  },
+  
+  
 ]
 
 const categories = ["All", "AI", "SaaS", "Automation"]

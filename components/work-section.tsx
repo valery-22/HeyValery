@@ -54,48 +54,7 @@ const freelanceProjects = [
     demo: "https://demo.com",
     video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   },
-  {
-    id: 4,
-    title: "Multi-Tenant SaaS Platform",
-    client: "Healthcare Tech",
-    description:
-      "Built secure multi-tenant platform for healthcare providers with HIPAA compliance, patient management, and billing. Serves 50+ clinics.",
-    tech: ["Next.js", "Node.js", "PostgreSQL", "AWS", "Stripe", "TailwindCSS"],
-    results: ["50+ active clinics", "HIPAA compliant", "99.9% uptime", "Automated billing system"],
-    service: "Available: SaaS platforms, Multi-tenant architecture, Healthcare software",
-    image: "/freelance-saas-platform.jpg",
-    category: "Full-Stack",
-    demo: "https://demo.com",
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  },
-  {
-    id: 5,
-    title: "Computer Vision Defect Detection",
-    client: "Manufacturing Company",
-    description:
-      "Developed ML system for automated quality control using computer vision. Detects product defects with 97% accuracy, replacing manual inspection.",
-    tech: ["Python", "PyTorch", "OpenCV", "FastAPI", "React", "Docker"],
-    results: ["97% defect detection accuracy", "80% faster than manual inspection", "Real-time processing"],
-    service: "Available: Computer vision systems, Quality control automation, ML deployment",
-    image: "/freelance-computer-vision.jpg",
-    category: "AI",
-    demo: "https://demo.com",
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  },
-  {
-    id: 6,
-    title: "Inventory Management System",
-    client: "Retail Chain",
-    description:
-      "Created comprehensive inventory system with predictive restocking, real-time tracking, and automated ordering. Reduced stockouts by 85%.",
-    tech: ["Next.js", "Python", "FastAPI", "PostgreSQL", "XGBoost", "Docker"],
-    results: ["85% reduction in stockouts", "Automated reordering", "ML-powered demand forecasting"],
-    service: "Available: Inventory systems, Predictive analytics, E-commerce solutions",
-    image: "/freelance-inventory-system.jpg",
-    category: "Full-Stack",
-    demo: "https://demo.com",
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  },
+  
 ]
 
 const categories = ["All", "AI", "Full-Stack"]
